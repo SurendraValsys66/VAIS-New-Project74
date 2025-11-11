@@ -1071,6 +1071,16 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                         </div>
                       </div>
 
+                      {/* Daily Limit Progress Bar */}
+                      <div className="px-4 py-4 border-b border-gray-200">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-xs font-semibold text-gray-700">Daily Limit</span>
+                          <span className="text-xs font-semibold text-valasys-orange">45/100</span>
+                        </div>
+                        <Progress value={45} className="h-2" />
+                        <p className="text-xs text-gray-500 mt-2">55 lookups remaining today</p>
+                      </div>
+
                       <div className="px-4 pt-3 pb-2 text-[11px] font-semibold text-gray-500">
                         ACCOUNT MANAGEMENT
                       </div>
@@ -1295,7 +1305,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
               <DialogClose asChild>
                 <button className="ml-2 text-gray-400 hover:text-gray-600">
-                  ✕
+                  ���
                 </button>
               </DialogClose>
             </div>
