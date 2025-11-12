@@ -201,6 +201,33 @@ export default function WishlistProspects() {
     }
   };
 
+  const handleCreateList = () => {
+    if (!newListName.trim()) {
+      toast({
+        title: "Error",
+        description: "Please enter a list name",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const newList: ProspectList = {
+      id: `list-${Date.now()}`,
+      name: newListName.trim(),
+      prospects: [],
+      createdAt: new Date().toISOString(),
+    };
+
+    setLists((prevLists) => [...prevLists, newList]);
+    toast({
+      title: "Success",
+      description: `List "${newListName.trim()}" created successfully!`,
+    });
+
+    setNewListName("");
+    setCreateListDialogOpen(false);
+  };
+
   const addSampleData = () => {
     const sampleLists: ProspectList[] = [
       {
