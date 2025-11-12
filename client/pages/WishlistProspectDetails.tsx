@@ -86,6 +86,10 @@ interface ProspectData {
   previousCompanies?: string[];
   education?: string;
   skills?: string[];
+  socialMedia?: {
+    twitter?: string;
+    github?: string;
+  };
   selected: boolean;
 }
 
@@ -573,7 +577,7 @@ export default function WishlistProspectDetails() {
     );
   }
 
-  const prospectData = generateProspectData(currentList.prospects);
+  const prospectData = initialProspectsData;
 
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -586,7 +590,10 @@ export default function WishlistProspectDetails() {
     company: true,
     jobTitle: true,
     jobFunction: true,
+    revenue: true,
+    mainIndustry: true,
     country: true,
+    contactInfo: true,
     actions: true,
   });
 
@@ -595,7 +602,10 @@ export default function WishlistProspectDetails() {
     { key: "company", label: "Company" },
     { key: "jobTitle", label: "Job Title" },
     { key: "jobFunction", label: "Job Function" },
+    { key: "revenue", label: "Revenue" },
+    { key: "mainIndustry", label: "Main Industry" },
     { key: "country", label: "Country" },
+    { key: "contactInfo", label: "Contact Info" },
     { key: "actions", label: "Actions" },
   ] as const;
 
