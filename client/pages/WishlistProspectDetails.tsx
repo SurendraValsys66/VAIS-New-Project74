@@ -737,6 +737,26 @@ export default function WishlistProspectDetails() {
     }
   };
 
+  const handleRemoveProspect = (prospectId: string) => {
+    if (!currentList) return;
+
+    const updatedLists = lists.map((list) => {
+      if (list.id === currentList.id) {
+        return {
+          ...list,
+          prospects: list.prospects.filter((id) => id !== prospectId),
+        };
+      }
+      return list;
+    });
+
+    setLists(updatedLists);
+    toast({
+      title: "Success",
+      description: "Prospect removed from list",
+    });
+  };
+
   const handleDownload = () => {
     try {
       const csvHeader = ["Prospect Name", "Email", "Company", "Job Title", "Country"];
