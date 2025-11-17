@@ -227,7 +227,7 @@ export default function AgreementModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl max-h-[90vh] flex flex-col p-0">
+      <DialogContent className="max-w-2xl max-h-[75vh] flex flex-col p-0">
         <DialogHeader className="px-6 pt-6 pb-4 border-b bg-gradient-to-r from-valasys-orange/5 to-transparent">
           <DialogTitle className="text-2xl font-bold text-valasys-gray-900">
             Master Subscriber Agreement
