@@ -14,12 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  CreditCard,
-  AlertCircle,
-  Check,
-  Zap,
-} from "lucide-react";
+import { CreditCard, AlertCircle, Check, Zap } from "lucide-react";
 
 const COUNTRIES = [
   "United States",
@@ -276,10 +271,10 @@ export function AddPaymentMethodDialog({
                   <CreditCard className="w-5 md:w-6 h-5 md:h-6" />
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-gray-900 text-sm md:text-base">Card</p>
-                  <p className="text-xs text-gray-500 mt-1">
-                    Visa, Mastercard
+                  <p className="font-bold text-gray-900 text-sm md:text-base">
+                    Card
                   </p>
+                  <p className="text-xs text-gray-500 mt-1">Visa, Mastercard</p>
                 </div>
               </div>
               {paymentType === "card" && (
@@ -317,10 +312,10 @@ export function AddPaymentMethodDialog({
                   </svg>
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-gray-900 text-sm md:text-base">PayPal</p>
-                  <p className="text-xs text-gray-500 mt-1">
-                    Fast & secure
+                  <p className="font-bold text-gray-900 text-sm md:text-base">
+                    PayPal
                   </p>
+                  <p className="text-xs text-gray-500 mt-1">Fast & secure</p>
                 </div>
               </div>
               {paymentType === "paypal" && (
@@ -336,7 +331,9 @@ export function AddPaymentMethodDialog({
               <div className="space-y-5">
                 <div>
                   <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
-                    <span className="inline-flex items-center justify-center w-5 md:w-6 h-5 md:h-6 bg-gradient-to-br from-valasys-orange to-valasys-orange-light text-white text-xs font-bold rounded-full">1</span>
+                    <span className="inline-flex items-center justify-center w-5 md:w-6 h-5 md:h-6 bg-gradient-to-br from-valasys-orange to-valasys-orange-light text-white text-xs font-bold rounded-full">
+                      1
+                    </span>
                     Card Number
                   </label>
                   <div className="relative group">
@@ -369,7 +366,9 @@ export function AddPaymentMethodDialog({
 
                 <div className="grid grid-cols-2 gap-3 md:gap-4">
                   <div>
-                    <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">Expires</label>
+                    <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">
+                      Expires
+                    </label>
                     <Input
                       placeholder="MM/YY"
                       value={formData.expiryDate}
@@ -389,7 +388,9 @@ export function AddPaymentMethodDialog({
                     )}
                   </div>
                   <div>
-                    <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">CVC</label>
+                    <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">
+                      CVC
+                    </label>
                     <Input
                       placeholder="123"
                       value={formData.cvc}
@@ -411,7 +412,9 @@ export function AddPaymentMethodDialog({
                 </div>
 
                 <div>
-                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">Cardholder Name</label>
+                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">
+                    Cardholder Name
+                  </label>
                   <Input
                     placeholder="Full name on card"
                     value={formData.cardholderName}
@@ -436,7 +439,9 @@ export function AddPaymentMethodDialog({
                 </div>
 
                 <div>
-                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">Country or Region</label>
+                  <label className="block text-xs md:text-sm font-bold text-gray-900 mb-2">
+                    Country or Region
+                  </label>
                   <Select
                     value={formData.country}
                     onValueChange={(value) =>
@@ -500,7 +505,8 @@ export function AddPaymentMethodDialog({
                       Secure & Fast Payment
                     </p>
                     <p className="text-xs md:text-sm text-gray-700 mt-1">
-                      PayPal securely handles your payment without sharing card details
+                      PayPal securely handles your payment without sharing card
+                      details
                     </p>
                   </div>
                 </div>
