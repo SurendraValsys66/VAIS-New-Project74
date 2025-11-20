@@ -434,7 +434,10 @@ export function AddPaymentMethodDialog({
                       placeholder="123"
                       value={formData.cvc}
                       onChange={handleCvcChange}
+                      disabled={isEditMode}
                       className={`h-10 md:h-12 text-base md:text-lg font-mono font-bold tracking-widest transition-all border-2 focus:ring-2 focus:ring-valasys-orange/30 ${
+                        isEditMode ? "bg-gray-100 cursor-not-allowed" : ""
+                      } ${
                         getErrorMessage("cvc")
                           ? "border-red-500 focus:border-red-500"
                           : "border-gray-200 focus:border-valasys-orange"
