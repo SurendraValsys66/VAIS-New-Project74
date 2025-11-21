@@ -276,7 +276,7 @@ export function AddPaymentMethodDialog({
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="max-w-lg w-full mx-2 overflow-y-auto max-h-[90vh]">
         <DialogHeader>
-          <DialogTitle className="text-xl md:text-2xl font-bold bg-gradient-to-r from-valasys-orange to-valasys-orange-light bg-clip-text text-transparent">
+          <DialogTitle className="text-xl md:text-2xl font-bold text-black">
             {isEditMode ? "Edit Payment Method" : "Add Payment Method"}
           </DialogTitle>
           <p className="text-xs md:text-sm text-gray-600 mt-2">
@@ -376,11 +376,11 @@ export function AddPaymentMethodDialog({
                         value={formData.cardNumber}
                         onChange={handleCardNumberChange}
                         disabled={isEditMode}
-                        className={`h-11 text-sm font-mono tracking-wider transition-all border rounded-lg focus:ring-2 focus:ring-valasys-orange/30 pr-28 ${
+                        className={`h-11 text-sm font-mono tracking-wider transition-all border rounded-lg pr-28 ${
                           isEditMode ? "bg-gray-100 cursor-not-allowed" : ""
                         } ${
                           getErrorMessage("cardNumber")
-                            ? "border-red-500 focus:border-red-500"
+                            ? "border-red-500"
                             : "border-gray-200 focus:border-valasys-orange"
                         }`}
                         maxLength={19}
@@ -426,9 +426,9 @@ export function AddPaymentMethodDialog({
                           placeholder="MM/YY"
                           value={formData.expiryDate}
                           onChange={handleExpiryChange}
-                          className={`h-11 text-sm font-mono tracking-widest transition-all border rounded-lg focus:ring-2 focus:ring-valasys-orange/30 ${
+                          className={`h-11 text-sm font-mono tracking-widest transition-all border rounded-lg ${
                             getErrorMessage("expiryDate")
-                              ? "border-red-500 focus:border-red-500"
+                              ? "border-red-500"
                               : "border-gray-200 focus:border-valasys-orange"
                           }`}
                           maxLength={5}
@@ -446,11 +446,11 @@ export function AddPaymentMethodDialog({
                           value={formData.cvc}
                           onChange={handleCvcChange}
                           disabled={isEditMode}
-                          className={`h-11 text-sm font-mono tracking-widest transition-all border rounded-lg focus:ring-2 focus:ring-valasys-orange/30 pr-10 ${
+                          className={`h-11 text-sm font-mono tracking-widest transition-all border rounded-lg pr-10 ${
                             isEditMode ? "bg-gray-100 cursor-not-allowed" : ""
                           } ${
                             getErrorMessage("cvc")
-                              ? "border-red-500 focus:border-red-500"
+                              ? "border-red-500"
                               : "border-gray-200 focus:border-valasys-orange"
                           }`}
                           maxLength={4}
@@ -485,9 +485,9 @@ export function AddPaymentMethodDialog({
                         cardholderName: e.target.value,
                       })
                     }
-                    className={`h-11 text-sm transition-all border rounded-lg focus:ring-2 focus:ring-valasys-orange/30 ${
+                    className={`h-11 text-sm transition-all border rounded-lg ${
                       getErrorMessage("cardholderName")
-                        ? "border-red-500 focus:border-red-500"
+                        ? "border-red-500"
                         : "border-gray-200 focus:border-valasys-orange"
                     }`}
                   />
@@ -573,9 +573,9 @@ export function AddPaymentMethodDialog({
                   onChange={(e) =>
                     setFormData({ ...formData, paypalEmail: e.target.value })
                   }
-                  className={`h-10 md:h-12 text-sm md:text-base transition-all border-2 focus:ring-2 focus:ring-valasys-orange/30 ${
+                  className={`h-10 md:h-12 text-sm md:text-base transition-all border rounded-lg ${
                     getErrorMessage("paypalEmail")
-                      ? "border-red-500 focus:border-red-500"
+                      ? "border-red-500"
                       : "border-gray-200 focus:border-valasys-orange"
                   }`}
                 />
