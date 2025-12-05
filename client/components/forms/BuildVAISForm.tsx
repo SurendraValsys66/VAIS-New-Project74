@@ -489,18 +489,18 @@ export default function BuildVAISForm() {
         <p className="text-sm text-valasys-gray-600 leading-relaxed">{topic.description}</p>
       </div>
 
-      <div className="space-y-2">
-        <div className="flex items-center justify-between py-2">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="flex items-center justify-between py-2 px-3 bg-valasys-gray-50 rounded">
           <span className="text-sm font-medium text-valasys-gray-700 flex items-center">
             <TrendingUp className="w-4 h-4 mr-2 text-valasys-orange" />
             Volume
           </span>
           <span className="text-sm font-semibold text-valasys-gray-900">{topic.volume}</span>
         </div>
-        <div className="flex items-center justify-between py-2">
+        <div className="flex items-center justify-between py-2 px-3 bg-valasys-gray-50 rounded">
           <span className="text-sm font-medium text-valasys-gray-700 flex items-center">
             <Target className="w-4 h-4 mr-2 text-valasys-orange" />
-            Conversion Rate
+            Conversion
           </span>
           <span className="text-sm font-semibold text-valasys-gray-900">{topic.conversion}</span>
         </div>
