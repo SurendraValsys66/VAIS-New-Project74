@@ -146,7 +146,7 @@ export function FeedbackModal({ open, onOpenChange }: FeedbackModalProps) {
                     ref={(el) => {
                       if (el) gifRefs.current[item.value] = el;
                     }}
-                    src={hoveredRating === item.value || rating === item.value ? item.gif : PAUSED_GIF_STATE[item.value]}
+                    src={item.gif}
                     alt={item.label}
                     className={cn(
                       "w-8 h-8 rounded-full object-cover transition-all duration-200",
