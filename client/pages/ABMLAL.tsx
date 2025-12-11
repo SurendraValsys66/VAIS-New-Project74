@@ -2931,6 +2931,10 @@ export default function ABMLAL() {
           </div>
         </div>
       </div>
+      <VAISFeedbackModal
+        open={showFeedbackModal}
+        onOpenChange={setShowFeedbackModal}
+      />
     </DashboardLayout>
   );
 }
