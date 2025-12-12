@@ -221,7 +221,7 @@ export default function Templates() {
                   />
                 </div>
                 <div className="text-sm text-gray-600 bg-blue-50 p-3 rounded">
-                  <strong>Tip:</strong> Use variables like {{firstName}}, {{lastName}}, {{email}}, {{companyName}}, etc. for dynamic content
+                  <strong>Tip:</strong> Use variables like [firstName], [lastName], [email], [companyName], etc. for dynamic content
                 </div>
               </div>
               <DialogFooter>
