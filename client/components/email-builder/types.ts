@@ -106,7 +106,14 @@ export interface LogoBlock {
   alt: string;
   width: number;
   height: number;
+  widthUnit: "px" | "%";
   alignment: "left" | "center" | "right";
+  padding: number;
+  margin: number;
+  borderWidth: number;
+  borderColor: string;
+  borderRadius: number;
+  visibility: "all" | "desktop" | "mobile";
 }
 
 export interface SocialBlock {
