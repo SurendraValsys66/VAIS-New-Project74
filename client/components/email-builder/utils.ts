@@ -157,6 +157,12 @@ export function createSocialBlock(): SocialBlock {
     ],
     alignment: "center",
     size: "medium",
+    padding: 0,
+    margin: 0,
+    borderWidth: 0,
+    borderColor: "#000000",
+    borderRadius: 0,
+    visibility: "all",
   };
 }
 
