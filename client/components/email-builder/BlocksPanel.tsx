@@ -234,9 +234,9 @@ export const BlocksPanel: React.FC<BlocksPanelProps> = ({ onAddBlock }) => {
 
         <TabsContent
           value="sections"
-          className="flex-1 flex flex-col overflow-hidden m-0"
+          className="flex-1 flex flex-col overflow-hidden m-0 h-full"
         >
-          <div className="flex-1 p-4 overflow-hidden">
+          <div className="flex-1 p-4 overflow-hidden h-full flex items-center justify-center">
             <div className="space-y-3">
               <div className="p-4 rounded-lg border border-dashed border-gray-300 text-center">
                 <p className="text-sm text-gray-500">
@@ -249,9 +249,9 @@ export const BlocksPanel: React.FC<BlocksPanelProps> = ({ onAddBlock }) => {
 
         <TabsContent
           value="saved"
-          className="flex-1 flex flex-col overflow-hidden m-0"
+          className="flex-1 flex flex-col overflow-hidden m-0 h-full"
         >
-          <div className="flex-1 p-4 overflow-hidden">
+          <div className="flex-1 p-4 overflow-hidden h-full flex items-center justify-center">
             <div className="space-y-3">
               <div className="p-4 rounded-lg border border-dashed border-gray-300 text-center">
                 <p className="text-sm text-gray-500">
