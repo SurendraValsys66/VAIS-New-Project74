@@ -223,14 +223,30 @@ export function createEmptyTemplate(): EmailTemplate {
 
 export function renderBlockToHTML(block: ContentBlock): string {
   switch (block.type) {
+    case "title":
+      return `<h1 style="font-size: ${block.fontSize}px; color: ${block.fontColor}; background-color: ${block.backgroundColor}; text-align: ${block.alignment}; font-weight: ${block.fontWeight}; margin: 0;">${block.content}</h1>`;
     case "text":
       return `<p style="font-size: ${block.fontSize}px; color: ${block.fontColor}; background-color: ${block.backgroundColor}; text-align: ${block.alignment}; font-weight: ${block.fontWeight}; font-style: ${block.fontStyle};">${block.content}</p>`;
     case "image":
       return `<img src="${block.src}" alt="${block.alt}" style="width: ${block.width}px; height: ${block.height}px; display: block; margin: 0 auto;" />`;
+    case "video":
+      return `<div style="text-align: ${block.alignment};"><video width="${block.width}" height="${block.height}" controls poster="${block.thumbnail}" style="max-width: 100%;"><source src="${block.src}" type="video/mp4"></video></div>`;
     case "button":
       return `<a href="${block.link}" style="background-color: ${block.backgroundColor}; color: ${block.textColor}; padding: ${block.padding}px 20px; border-radius: ${block.borderRadius}px; text-decoration: none; display: inline-block; text-align: center;">${block.text}</a>`;
+    case "dynamicContent":
+      return `<div style="background-color: ${block.backgroundColor}; padding: ${block.padding}px; border: 1px dashed #ccc;">${block.placeholder}</div>`;
+    case "logo":
+      return `<div style="text-align: ${block.alignment};"><img src="${block.src}" alt="${block.alt}" style="width: ${block.width}px; height: ${block.height}px;" /></div>`;
+    case "social":
+      return `<div style="text-align: ${block.alignment}; padding: 20px 0;"><p>Follow us on social media</p></div>`;
+    case "html":
+      return block.content;
     case "divider":
       return `<hr style="border: none; border-top: ${block.height}px solid ${block.color}; margin: ${block.margin}px 0;" />`;
+    case "product":
+      return `<div style="text-align: ${block.alignment}; border: 1px solid #ddd; padding: 20px; border-radius: 8px;"><img src="${block.image}" alt="${block.title}" style="width: 100%; max-width: 300px; height: auto;"><h3>${block.title}</h3><p>${block.description}</p><p style="font-weight: bold;">${block.price}</p><a href="${block.buttonLink}" style="background-color: #FF6A00; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px;">${block.buttonText}</a></div>`;
+    case "navigation":
+      return `<nav style="background-color: ${block.backgroundColor}; padding: 10px 0; text-align: ${block.alignment};"><a href="#" style="color: ${block.textColor}; margin: 0 15px; text-decoration: none;">Link</a></nav>`;
     case "header":
       return `<div style="background-color: ${block.backgroundColor}; padding: ${block.padding}px; text-align: ${block.alignment};"><img src="${block.logo}" alt="Logo" style="max-width: 200px; height: auto;" /></div>`;
     case "footer":
