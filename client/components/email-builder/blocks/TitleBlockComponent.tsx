@@ -17,12 +17,18 @@ export const TitleBlockComponent: React.FC<TitleBlockComponentProps> = ({
   onEdit,
   onContentChange,
 }) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onEdit();
+  };
+
   return (
     <div
-      className={`relative p-4 transition-all cursor-pointer ${
+      className={`relative p-4 transition-all cursor-pointer user-select-none ${
         isSelected ? "ring-2 ring-valasys-orange" : ""
       }`}
-      onClick={onEdit}
+      onClick={handleClick}
+      style={{ userSelect: "none" }}
     >
       {isEditing ? (
         <textarea
@@ -36,6 +42,7 @@ export const TitleBlockComponent: React.FC<TitleBlockComponentProps> = ({
             backgroundColor: block.backgroundColor,
             textAlign: block.alignment as any,
             fontWeight: block.fontWeight as any,
+            userSelect: "text",
           }}
         />
       ) : (
@@ -48,6 +55,7 @@ export const TitleBlockComponent: React.FC<TitleBlockComponentProps> = ({
             fontWeight: block.fontWeight as any,
             margin: 0,
             padding: "8px",
+            userSelect: "none",
           }}
         >
           {block.content}

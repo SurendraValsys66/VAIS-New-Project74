@@ -18,14 +18,17 @@ import {
   SpacerBlock,
 } from "./types";
 
-let idCounter = 0;
 export function generateId(): string {
+  // Use crypto.randomUUID if available, fallback to timestamp + random
+  if (typeof crypto !== "undefined" && crypto.randomUUID) {
+    return crypto.randomUUID();
+  }
+  // Fallback: timestamp + multiple random components for better uniqueness
   const timestamp = Date.now();
-  const counter = idCounter++ % 10000;
-  const random =
-    Math.random().toString(36).substring(2, 15) +
-    Math.random().toString(36).substring(2, 15);
-  return `${timestamp}-${counter}-${random}`;
+  const random1 = Math.random().toString(36).substring(2, 15);
+  const random2 = Math.random().toString(36).substring(2, 15);
+  const random3 = Math.random().toString(36).substring(2, 15);
+  return `${timestamp}-${random1}-${random2}-${random3}`;
 }
 
 export function createTitleBlock(content = "Click to edit title"): TitleBlock {
@@ -171,6 +174,8 @@ export function createHtmlBlock(content = ""): HtmlBlock {
     type: "html",
     id: generateId(),
     content,
+    width: 100,
+    widthUnit: "%",
     padding: 0,
     margin: 0,
     borderWidth: 0,
@@ -228,6 +233,9 @@ export function createButtonBlock(text = "Click me"): ButtonBlock {
     id: generateId(),
     text,
     link: "#",
+    linkType: "url",
+    linkTarget: "",
+    linkTooltip: "",
     backgroundColor: "#FF6A00",
     textColor: "#ffffff",
     padding: 12,
@@ -347,8 +355,30 @@ export function renderBlockToHTML(block: ContentBlock): string {
     }
     case "video":
       return `<div style="text-align: ${block.alignment};"><video width="${block.width}" height="${block.height}" controls poster="${block.thumbnail}" style="max-width: 100%;"><source src="${block.src}" type="video/mp4"></video></div>`;
-    case "button":
-      return `<a href="${block.link}" style="background-color: ${block.backgroundColor}; color: ${block.textColor}; padding: ${block.padding}px 20px; border-radius: ${block.borderRadius}px; text-decoration: none; display: inline-block; text-align: center;">${block.text}</a>`;
+    case "button": {
+      const buttonBlock = block as ButtonBlock;
+      const buttonWidth =
+        buttonBlock.widthUnit === "%"
+          ? `${buttonBlock.width}%`
+          : `${buttonBlock.width}px`;
+      const buttonBorder =
+        buttonBlock.borderWidth > 0
+          ? `border: ${buttonBlock.borderWidth}px solid ${buttonBlock.borderColor};`
+          : "";
+      const buttonAlignment =
+        buttonBlock.alignment === "left"
+          ? "flex-start"
+          : buttonBlock.alignment === "right"
+            ? "flex-end"
+            : "center";
+      const target = buttonBlock.linkTarget
+        ? `target="${buttonBlock.linkTarget}"`
+        : "";
+      const title = buttonBlock.linkTooltip
+        ? `title="${buttonBlock.linkTooltip}"`
+        : "";
+      return `<div style="display: flex; justify-content: ${buttonAlignment}; margin: ${buttonBlock.margin}px;"><a href="${buttonBlock.link}" ${target} ${title} style="background-color: ${buttonBlock.backgroundColor}; color: ${buttonBlock.textColor}; padding: ${buttonBlock.padding}px 20px; border-radius: ${buttonBlock.borderRadius}px; text-decoration: none; display: inline-block; text-align: center; font-size: ${buttonBlock.fontSize}px; font-weight: ${buttonBlock.fontWeight}; width: ${buttonWidth}; ${buttonBorder}">${buttonBlock.text}</a></div>`;
+    }
     case "dynamicContent":
       return `<div style="background-color: ${block.backgroundColor}; padding: ${block.padding}px; border: 1px dashed #ccc;">${block.placeholder}</div>`;
     case "logo":
@@ -356,7 +386,7 @@ export function renderBlockToHTML(block: ContentBlock): string {
     case "social":
       return `<div style="text-align: ${block.alignment}; padding: 20px 0;"><p>Follow us on social media</p></div>`;
     case "html":
-      return block.content;
+      return `<div style="width: ${block.width}${block.widthUnit}; padding: ${block.padding}px; margin: ${block.margin}px;">${block.content}</div>`;
     case "divider":
       return `<hr style="border: none; border-top: ${block.height}px solid ${block.color}; margin: ${block.margin}px 0;" />`;
     case "product":
