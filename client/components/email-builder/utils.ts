@@ -302,10 +302,12 @@ export function createCenteredImageCardBlock(): CenteredImageCardBlock {
   return {
     type: "centeredImageCard",
     id: generateId(),
-    image: "https://images.unsplash.com/photo-1470114716159-e389f8712fda?w=600&h=300&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1470114716159-e389f8712fda?w=600&h=300&fit=crop",
     imageAlt: "Card image",
     title: "Some title here",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
     buttonText: "Call to action",
     buttonLink: "#",
     buttonLinkType: "url",
@@ -323,11 +325,13 @@ export function createSplitImageCardBlock(): SplitImageCardBlock {
   return {
     type: "splitImageCard",
     id: generateId(),
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&h=300&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&h=300&fit=crop",
     imageAlt: "Card image",
     label: "New",
     title: "Some title here",
-    description: "From 25€\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    description:
+      "From 25€\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
     buttonText: "Call to action",
     buttonLink: "#",
     buttonLinkType: "url",
@@ -447,7 +451,10 @@ export function renderBlockToHTML(block: ContentBlock): string {
       return `<div style="height: ${block.height}px; background-color: ${block.backgroundColor};"></div>`;
     case "centeredImageCard": {
       const cardBlock = block as CenteredImageCardBlock;
-      const borderStyle = cardBlock.borderWidth > 0 ? `border: ${cardBlock.borderWidth}px solid ${cardBlock.borderColor};` : "";
+      const borderStyle =
+        cardBlock.borderWidth > 0
+          ? `border: ${cardBlock.borderWidth}px solid ${cardBlock.borderColor};`
+          : "";
       return `<div style="background-color: ${cardBlock.backgroundColor}; border-radius: ${cardBlock.borderRadius}px; ${borderStyle} padding: ${cardBlock.padding}px; margin: ${cardBlock.margin}px; max-width: 500px; margin-left: auto; margin-right: auto;">
         <img src="${cardBlock.image}" alt="${cardBlock.imageAlt}" style="width: 100%; height: auto; display: block; border-radius: ${cardBlock.borderRadius}px ${cardBlock.borderRadius}px 0 0;" />
         <div style="text-align: center; padding: 20px;">
@@ -459,11 +466,16 @@ export function renderBlockToHTML(block: ContentBlock): string {
     }
     case "splitImageCard": {
       const splitBlock = block as SplitImageCardBlock;
-      const borderStyle = splitBlock.borderWidth > 0 ? `border: ${splitBlock.borderWidth}px solid ${splitBlock.borderColor};` : "";
+      const borderStyle =
+        splitBlock.borderWidth > 0
+          ? `border: ${splitBlock.borderWidth}px solid ${splitBlock.borderColor};`
+          : "";
       const imageSide = splitBlock.imagePosition === "left" ? "45%" : "55%";
       const contentSide = splitBlock.imagePosition === "left" ? "55%" : "45%";
       const direction = splitBlock.imagePosition === "left" ? "ltr" : "rtl";
-      const label = splitBlock.label ? `<span style="display: inline-block; background-color: #FF6A00; color: #ffffff; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-bottom: 8px;">${splitBlock.label}</span>` : "";
+      const label = splitBlock.label
+        ? `<span style="display: inline-block; background-color: #FF6A00; color: #ffffff; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-bottom: 8px;">${splitBlock.label}</span>`
+        : "";
       return `<div style="background-color: ${splitBlock.backgroundColor}; border-radius: ${splitBlock.borderRadius}px; ${borderStyle} margin: ${splitBlock.margin}px; max-width: 600px; margin-left: auto; margin-right: auto; overflow: hidden;">
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
           <tr>

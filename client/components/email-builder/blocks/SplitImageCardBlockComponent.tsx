@@ -103,7 +103,9 @@ export const SplitImageCardBlockComponent: React.FC<
                   {editMode === "label" ? (
                     <Input
                       value={block.label}
-                      onChange={(e) => handleFieldChange("label", e.target.value)}
+                      onChange={(e) =>
+                        handleFieldChange("label", e.target.value)
+                      }
                       onBlur={() => setEditMode(null)}
                       autoFocus
                       className="text-xs"
@@ -150,7 +152,9 @@ export const SplitImageCardBlockComponent: React.FC<
                 {editMode === "description" ? (
                   <textarea
                     value={block.description}
-                    onChange={(e) => handleFieldChange("description", e.target.value)}
+                    onChange={(e) =>
+                      handleFieldChange("description", e.target.value)
+                    }
                     onBlur={() => setEditMode(null)}
                     autoFocus
                     className="w-full p-2 border border-gray-300 rounded text-sm text-gray-600 min-h-20"
@@ -173,7 +177,9 @@ export const SplitImageCardBlockComponent: React.FC<
                 {editMode === "buttonText" ? (
                   <Input
                     value={block.buttonText}
-                    onChange={(e) => handleFieldChange("buttonText", e.target.value)}
+                    onChange={(e) =>
+                      handleFieldChange("buttonText", e.target.value)
+                    }
                     onBlur={() => setEditMode(null)}
                     autoFocus
                   />
@@ -195,7 +201,9 @@ export const SplitImageCardBlockComponent: React.FC<
                 {editMode === "buttonLink" ? (
                   <Input
                     value={block.buttonLink}
-                    onChange={(e) => handleFieldChange("buttonLink", e.target.value)}
+                    onChange={(e) =>
+                      handleFieldChange("buttonLink", e.target.value)
+                    }
                     onBlur={() => setEditMode(null)}
                     autoFocus
                     placeholder="https://example.com"

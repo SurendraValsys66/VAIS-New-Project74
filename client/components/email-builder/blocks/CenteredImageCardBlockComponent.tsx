@@ -111,7 +111,9 @@ export const CenteredImageCardBlockComponent: React.FC<
             {editMode === "description" ? (
               <textarea
                 value={block.description}
-                onChange={(e) => handleFieldChange("description", e.target.value)}
+                onChange={(e) =>
+                  handleFieldChange("description", e.target.value)
+                }
                 onBlur={() => setEditMode(null)}
                 autoFocus
                 className="w-full p-2 border border-gray-300 rounded text-sm text-gray-600 min-h-16"
@@ -134,7 +136,9 @@ export const CenteredImageCardBlockComponent: React.FC<
             {editMode === "buttonText" ? (
               <Input
                 value={block.buttonText}
-                onChange={(e) => handleFieldChange("buttonText", e.target.value)}
+                onChange={(e) =>
+                  handleFieldChange("buttonText", e.target.value)
+                }
                 onBlur={() => setEditMode(null)}
                 autoFocus
                 className="text-center"
@@ -157,7 +161,9 @@ export const CenteredImageCardBlockComponent: React.FC<
             {editMode === "buttonLink" ? (
               <Input
                 value={block.buttonLink}
-                onChange={(e) => handleFieldChange("buttonLink", e.target.value)}
+                onChange={(e) =>
+                  handleFieldChange("buttonLink", e.target.value)
+                }
                 onBlur={() => setEditMode(null)}
                 autoFocus
                 placeholder="https://example.com"

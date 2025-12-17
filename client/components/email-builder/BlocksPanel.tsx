@@ -167,7 +167,8 @@ const SectionsPanel: React.FC<SectionsPanelProps> = ({ onAddBlock }) => {
     {
       id: "centered-image-card",
       title: "Image Card with Title & CTA",
-      description: "Centered layout with image banner, title, description and call-to-action button",
+      description:
+        "Centered layout with image banner, title, description and call-to-action button",
       preview:
         "https://images.unsplash.com/photo-1470114716159-e389f8712fda?w=400&h=200&fit=crop",
       blocks: () => [createCenteredImageCardBlock()],
@@ -175,7 +176,8 @@ const SectionsPanel: React.FC<SectionsPanelProps> = ({ onAddBlock }) => {
     {
       id: "split-image-card",
       title: "Image + Content Split Card",
-      description: "Left image with right content - title, description, optional label and CTA",
+      description:
+        "Left image with right content - title, description, optional label and CTA",
       preview:
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop",
       blocks: () => [createSplitImageCardBlock()],
@@ -286,7 +288,10 @@ const SectionsPanel: React.FC<SectionsPanelProps> = ({ onAddBlock }) => {
     <div className="flex flex-col w-full">
       <div className="border-b border-gray-200">
         {sections.map((section) => (
-          <div key={section.title} className="border-b border-gray-200 last:border-b-0">
+          <div
+            key={section.title}
+            className="border-b border-gray-200 last:border-b-0"
+          >
             <button
               onClick={() => toggleSection(section.title)}
               className="w-full flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors"
