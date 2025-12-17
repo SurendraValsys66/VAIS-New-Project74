@@ -36,6 +36,10 @@ import {
   createSpacerBlock,
   createCenteredImageCardBlock,
   createSplitImageCardBlock,
+  createTwoColumnCardBlock,
+  createPromoBlock,
+  createStatsBlock,
+  createFeaturesBlock,
 } from "./utils";
 import { ContentBlock } from "./types";
 
