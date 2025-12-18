@@ -394,6 +394,7 @@ export type ContentBlock =
   | NavigationBlock
   | HeaderBlock
   | FooterBlock
+  | FooterWithSocialBlock
   | SpacerBlock
   | CenteredImageCardBlock
   | SplitImageCardBlock;
