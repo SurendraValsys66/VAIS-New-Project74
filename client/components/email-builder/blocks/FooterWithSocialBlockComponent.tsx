@@ -35,9 +35,11 @@ export const FooterWithSocialBlockComponent: React.FC<
     >
       <div className="space-y-4">
         {/* Social Media Section */}
-        <div className="py-4 px-2 cursor-pointer hover:bg-gray-50 rounded"
+        <div
           onClick={() => onElementSelect?.("social")}
-          className={selectedElement === "social" ? "ring-2 ring-valasys-orange rounded" : ""}>
+          className={`py-4 px-2 cursor-pointer hover:bg-gray-50 rounded transition-all ${
+            selectedElement === "social" ? "ring-2 ring-valasys-orange" : ""
+          }`}>
           <div className="flex flex-wrap justify-center gap-2">
             {block.social.platforms.map((platform, index) => {
               const iconColor = getIconColor(platform.icon);
