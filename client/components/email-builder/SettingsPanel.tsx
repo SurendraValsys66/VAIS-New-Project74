@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Trash2, X } from "lucide-react";
 import { SocialLinksEditor } from "./SocialLinksEditor";
+import { FooterSocialLinksEditor } from "./FooterSocialLinksEditor";
 
 interface SettingsPanelProps {
   block: ContentBlock | null;
